@@ -36,7 +36,10 @@
 ## 🖼 Screenshots (Optional)
 Add screenshots of your final UI here
 
-
+![image_alt](https://github.com/nagaharshithaanasuri/employee-directory/blob/34a0975512b1839c1189187d7966fe7f5836dbb3/Screenshot%20(1).png)
+![image_alt](https://github.com/nagaharshithaanasuri/employee-directory/blob/34a0975512b1839c1189187d7966fe7f5836dbb3/Screenshot%20(2).png)
+![image_alt](https://github.com/nagaharshithaanasuri/employee-directory/blob/34a0975512b1839c1189187d7966fe7f5836dbb3/Screenshot%20(3).png)
+![image_alt](https://github.com/nagaharshithaanasuri/employee-directory/blob/34a0975512b1839c1189187d7966fe7f5836dbb3/Screenshot%20(4).png)
 ---
 
 ## 🙋‍♂ Author
