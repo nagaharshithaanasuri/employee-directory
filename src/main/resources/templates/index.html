@@ -1,0 +1,149 @@
+<!-- <#assign employees = [
+  { "id": 1, "firstName": "John", "lastName": "Doe", "email": "john.doe@example.com", "department": "HR", "role": "Manager" },
+  { "id": 2, "firstName": "Jane", "lastName": "Smith", "email": "jane.smith@example.com", "department": "IT", "role": "Developer" },
+  { "id": 3, "firstName": "Alice", "lastName": "Wong", "email": "alice.wong@example.com", "department": "Finance", "role": "Analyst" }
+]> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Directory</title>
+  <link rel="stylesheet" href="../static/css/style.css" />
+</head>
+<body>
+  <div class="main-cont">
+    <div class="container">
+  <header>
+    <!-- <div style="display: flex; gap: 20px;"> -->
+    <h1>Employee Directory</h1>
+    <input type="text" id="searchBar" placeholder="Search by name or email" onkeyup="handleSearch()" />
+  </header>
+
+
+  <!-- Main card display container -->
+  <main>
+    <div class="mainCont">
+    <div>
+    <label for="sortOption">Sort:</label>
+<select class="sel" id="sortOption" onchange="handleSort()">
+  <option value="">--Select--</option>
+  <option value="name-asc">First Name (A-Z)</option>
+  <option value="name-desc">First Name (Z-A)</option>
+  <option value="dept-asc">Department (A-Z)</option>
+  <option value="dept-desc">Department (Z-A)</option>
+</select>
+
+<label for="itemsPerPage">Show:</label>
+<select class="sel" id="itemsPerPage" onchange="changeItemsPerPage()">
+  <option value="10">10</option>
+  <option value="25">25</option>
+  <option value="50">50</option>
+  <option value="100">100</option>
+</select>
+
+<!-- Pagination Controls -->
+<div id="pagination-controls"></div>
+    </div>
+<div>
+    <button id="addEmployeeBtn">Add Employee</button>
+    </div>
+    </div>
+    <div id="employee-list-container">
+    <!-- Cards will be injected by JavaScript -->
+  </div>
+
+
+<!-- modal for adding employee -->
+
+<div id="addModal" class="modal1">
+  <div class="modal-content">
+    <h2>Add Employee</h2>
+    <form id="addEmployeeForm">
+    <label for="addFirstName">First Name</label><br/>
+    <input class="inputAdd" type="text" id="addFirstName"  required /><br/>
+    <label for="addLastName">Last Name</label><br/>
+    <input class="inputAdd" type="text" id="addLastName" required /><br/>
+    <div class="contf">
+        <div>
+   <label for="addEmail">Email</label>  <br/>
+      <input class="inputAdd" type="email" id="addEmail" required /><br/>
+      </div>
+      <div>
+       <label for="addDepartment">Department</label><br/>
+<select id="addDepartment" required>
+  <option value="">--Select Department--</option>
+  <option value="HR">HR</option>
+  <option value="IT">IT</option>
+  <option value="Finance">Finance</option>
+  <option value="Operations">Operations</option>
+</select>
+<br/>
+      </div>
+      </div>
+     <label for="addRole">Role</label><br/>
+<select id="addRole" required>
+  <option value="">--Select Role--</option>
+  <option value="Manager">Manager</option>
+  <option value="Developer">Developer</option>
+  <option value="Analyst">Analyst</option>
+  <option value="Designer">Designer</option>
+</select><br/>
+
+      <div class="button-group1">
+        <button class="cancelBtn" type="button" onclick="closeAddModal()">Cancel</button>
+        <button class="addBtn" type="submit">Add</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <div id="editModal" class="modal">
+  <div class="modal-content">
+    <h2>Edit Employee</h2>
+    <form id="editEmployeeForm">
+      <input type="text" id="editFName" required /><br/>
+      <input type="text" id="editLName" required /><br/>
+      <input type="email" id="editEmail" required /><br/>
+      <input type="text" id="editDepartment" required /><br/>
+      <input type="text" id="editRole" required />
+      <div class="button-group1">
+        <button type="button" onclick="closeEditModal()">Cancel</button>
+        <button type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+  </main>
+
+<footer>
+    <p>&copy; 2025 Employee Directory App. All rights reserved.</p>
+  </footer>
+</div>
+
+
+
+  <div class="filter-sidebar">
+  <h3>Filter Employees</h3>
+
+  <label for="filterName">First Name:</label>
+  <input type="text" id="filterName" />
+
+  <label for="filterDepartment">Department:</label>
+  <input type="text" id="filterDepartment" />
+
+  <label for="filterRole">Role:</label>
+  <input type="text" id="filterRole" />
+
+  <br /><br />
+  <button onclick="applyFilters()">Apply</button>
+  <button onclick="resetFilters()">Reset</button>
+</div>
+</div>
+
+  <!-- Load data and logic -->
+  <script src="../static/js/data.js"></script>
+  <script src="../static/js/app.js"></script>
+</body>
+</html>
